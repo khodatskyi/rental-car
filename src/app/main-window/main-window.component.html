@@ -1,0 +1,55 @@
+<div class="min-h-screen text-blue-100 bg-slate-900">
+  <div>
+    <h1 class="text-5xl md:text-7xl flex justify-center pt-4 pb-2">
+      {{ title }}
+    </h1>
+    <div>
+      <div
+        class="flex-my justify-center items-center gap-3 flex-col lg:flex-row py-3 px-3"
+      >
+        <div class="px-5 flex flex-col justify-center items-center">
+          <label>Start date:</label>
+          <p-calendar
+            [readonlyInput]=true
+            class="md:px-5"
+            [(ngModel)]="startDate"
+            [minDate]="currentDate"
+            [maxDate]="maxEndDate"
+            (ngModelChange)="updateMinEndDate($event)"
+          ></p-calendar>
+        </div>
+
+        <div class="px-5 flex flex-col justify-center items-center">
+          <label>End date:</label>
+          <p-calendar
+            [readonlyInput]=true
+            class="md:px-5"
+            [(ngModel)]="endDate"
+            [minDate]="minEndDate"
+            (ngModelChange)="updateMaxEndDate($event)"
+          ></p-calendar>
+        </div>
+      </div>
+
+      <h3 class="text-2xl lg:text-4xl pb-4 text-center">Book now</h3>
+    </div>
+  </div>
+
+  <!-- Анимированные карточки -->
+  <div
+    class="cards-container text-blue-100 text-5xl sm:text-8xl xl:text-9xl font-bold px-20 lg:p-5 flex flex-col lg:flex-row items-center justify-evenly lg:justify-center gap-8 lg:gap-16 relative z-10"
+  >
+    <div
+      (click)="navigateToCars($event)"
+      class="vanillaTilt card bg-[url(https://cdn.britannica.com/40/94540-050-789B2064/Palm-trees-skyline-Los-Angeles-background.jpg)]"
+    >
+      <p class="text-blue-100 p-10">Los Angeles</p>
+    </div>
+    <div
+      (click)="navigateToCars($event)"
+      class="vanillaTilt card bg-[url(https://all.accor.com/magazine/imagerie/1-34bc.jpg)]"
+    >
+      <p class="text-blue-100">Dubai</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="min-h-screen flex flex-col bg-slate-900 ">
+  <app-nav-bar class="bg-slate-950"></app-nav-bar>
+  <div class="text-gray-200 p-4">
+    <button
+      class="bg-gray-300 hover:bg-gray-400 text-slate-800 lg:font-bold py-2 mb-6 rounded-full text-xl lg:text-2xl w-48 lg:w-60"
+      (click)="backToCarList()"
+    >
+      Back to Car list
+    </button>
+    <div class=" flex flex-col lg:flex-row">
+      <div class="w-full lg:w-1/2 rounded-3xl">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5081.928354670736!2d30.523639955523933!3d50.441767909551494!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cf0002d2aed7%3A0x41c584d0b7cfe4eb!2sHorizon%20Office%20Towers!5e0!3m2!1sen!2sua!4v1703511028618!5m2!1sen!2sua"
+          width="800"
+          height="600"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          class="w-full rounded-3xl"
+        ></iframe>
+      </div>
+      <div class=" mt-5 lg:mt-0 flex flex-1 flex-col lg:px-7  text-xl lg:text-2xl">
+        <h3 class="text-center font-bold text-3xl lg:text-4xl">Contacts</h3>
+        <div class="my-3 lg:m-7 flex flex-col">
+            <div class="flex">
+              <h2 class="font-semibold mr-5">Phone </h2><p>380923123123</p>
+            </div>
+            <div class="flex">
+              <h2 class="font-semibold mr-5">Email</h2> <p>   rentcar.gmail.com</p>
+            </div>
+        </div>
+        <h3 class="text-center font-bold text-3xl lg:text-4xl">Address</h3>
+        <div class="my-3 lg:m-7 flex flex-col">
+          <div class="flex">
+            <h2 class="font-semibold mr-5">Kyiv</h2><p>Shovkovychna St, 42\44, 01601</p>
+          </div>
+          <div class="flex">
+            <h2 class="font-semibold mr-5">Horizon Office Towers</h2>
+          </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>

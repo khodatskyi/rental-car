@@ -1,0 +1,98 @@
+<div class="min-h-screen flex flex-col bg-slate-900">
+  <app-nav-bar class="bg-slate-950"></app-nav-bar>
+
+  <div class="flex flex-col m-4">
+    <button
+      class="bg-gray-300 hover:bg-gray-400 text-slate-800 md:font-bold py-2 mb-6 rounded-full md:text-2xl w-40 md:w-60"
+      (click)="backToCarList()"
+    >
+      Back to Car list
+    </button>
+    <div class="flex flex-col xl:flex-row rounded h-auto text-gray-200">
+      <div class="xl:w-3/5 2xl:w-1/2 flex justify-between relative">
+        <div
+          class="arrow left-0"
+          (click)="prevImage()"
+        >
+          Left
+        </div>
+        <div class=" flex justify-center items-center">
+          <img
+            [src]="currentImage"
+            [ngClass]="{ 'fade-in': animateImage }"
+            class="w-full rounded-3xl"
+          />
+        </div>
+        <div
+          class="arrow right-0"
+          (click)="nextImage()"
+        >
+          Right
+        </div>
+      </div>
+      <div class="flex flex-col flex-1 mt-6 xl:ml-4">
+        <h3 class="text-2xl md:text-4xl lg:text-5xl font-bold text-center">
+          {{ car.brand }} {{ car.model }}
+        </h3>
+
+        <p class="text-md md:text-xl lg:text-2xl p-4">
+          Make your vacation unforgettable with a premium car. The company
+          "Rental Car" provides {{ car.brand }} {{ car.model }} for rent in
+          {{ car.city }} so you can always get to where you need to be.
+          {{ car.brand }} — This is a classic of the auto industry, the ideal
+          combination of comfort and stylish design.
+        </p>
+        <div class="p-4 text-md md:text-lg lg:text-xl">
+          <p>Year - {{ car.year }}</p>
+          <p>Transmission - {{ car.transmission }}</p>
+          <p>Seats - {{ car.seats }}</p>
+          <p>Engine - {{ car.engine }}</p>
+          <p>From 0 to 100 km/h - {{ car.to100km }}</p>
+          <p>Horse power - {{ car.horsePower }}</p>
+          <p>Price for day - {{ car.priceForDay }}</p>
+        </div>
+        <div class="div p-4 text-md text-center md:text-xl lg:text-2xl">
+          <h2> You can rent this car for {{ daysForRent }} days for ${{daysForRent * car.priceForDay}} </h2>
+        </div>
+        <div class="flex justify-center">
+          <form
+            action="https://www.portmone.com.ua/gateway/"
+            method="post"
+            target="myFrame"
+          >
+            <input
+              type="hidden"
+              name="bodyRequest"
+              value='{
+              "paymentTypes":{"card":"Y","portmone":"Y","token":"N",
+                              "clicktopay":"Y","createtokenonly":"N"},
+              "priorityPaymentTypes":{"card":"1","portmone":"2",
+                                      "token":"0","clicktopay":"1","createtokenonly":"0"},
+              "payee":{"payeeId":"3048","login":"","dt":"","signature":"", "shopSiteId":""},
+              "order":{"description":"Аренда машины","shopOrderNumber":"SHP-00445402",
+                       "billAmount":"1","attribute1":"1","attribute2":"2","attribute3":"3",
+                       "attribute4":"4","attribute5":"","successUrl":"","failureUrl":"",
+                       "preauthFlag":"N","billCurrency":"UAH", "encoding":""},
+              "token":{"tokenFlag":"N","returnToken":"N","token":"","cardMask":"",
+                       "otherPaymentMethods":"Y","sellerToken":""},
+              "payer":{"lang":"uk", "emailAddress":"test@ukr.net"},
+              "style":{"type":"light","logo":"","backgroundColorHeader":"",
+                       "backgroundColorButtons":"","colorTextAndIcons":"",
+                       "borderColorList":"","bcMain":""}
+            }'
+            />
+
+            <input type="hidden" name="typeRequest" value="json" />
+
+            <button
+              type="submit"
+              class="custom-button cursor-pointer  text-slate-950 bg-slate-200 rounded-xl md:w-72 border-2 border-white p-2 md:p-4 text-xl md:text-2xl"
+            >
+              Make a reservation
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

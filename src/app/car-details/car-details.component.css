@@ -1,0 +1,58 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.custom-button:hover {
+  background-color: rgb(2, 6, 23);
+  color: white;
+  border: 2px solid white;
+}
+
+.arrow {
+  /* flex justify-center items-center cursor-pointer bg-slate-200 opacity-40 */
+  /* absolute text-2xl text-gray-800 hover:text-white font-medium top-1/4 bottom-1/4 left-0 
+    z-10 rounded-3xl hover:opacity-60 hover:bg-gray-700 w-1/12 */
+  display: flex;
+  position: absolute;
+  top: 25%;
+  bottom: 25%;
+  width: 9%;
+  z-index: 10;
+  border-radius: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: rgb(226, 232, 240);
+  opacity: 40%;
+
+  color: rgb(31, 41, 55);
+  font-weight: 500;
+  font-size: 1rem /* 24px */;
+  line-height: 1rem /* 32px */;
+}
+
+.arrow:hover {
+  color: white;
+  opacity: 0.6;
+  background-color: rgb(55, 65, 81);
+}
+
+.p-calendar .ui-inputtext {
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .arrow {
+    font-size: 1.5rem /* 24px */;
+    line-height: 2rem /* 32px */;
+  }
+}

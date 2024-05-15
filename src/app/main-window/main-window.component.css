@@ -1,0 +1,49 @@
+/* .card:hover {
+    transform: rotate3d(1,1,0,20deg);
+    transition: all ease 0.3s;
+} */
+
+.cards-container {
+  height: 65vh;
+}
+
+.flex-my {
+  display: flex;
+  justify-content: center;
+}
+
+.example-form-field {
+  margin-right: 20px;
+}
+
+:host ::ng-deep .p-datepicker td,
+:host ::ng-deep .p-datepicker th {
+  font-size: 13px;
+  padding: 0px;
+}
+
+p-calendar {
+  color: black;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: center;
+  width: 100%;
+  height: 40%;
+  border: 4px solid;
+  border-color: rgb(224, 231, 255);
+  background-size: cover;
+  background-position: center;
+  border-radius: 1.5rem;
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .card {
+    height: 100%;
+    width: 40%;
+  }
+}

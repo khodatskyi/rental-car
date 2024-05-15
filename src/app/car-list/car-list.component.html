@@ -1,0 +1,59 @@
+<div class="example lg:pb-8  flex flex-row justify-center mx-5 2xl:mx-0 gap-2 lg:gap-8 font-normal text-xl">
+  <button
+    class="button-filter"
+    [ngClass]="{
+      'bg-gray-700 text-white font-medium': currentFilter === 'cabriolet',
+      'bg-gray-300   text-slate-800 font-normal': currentFilter !== 'cabriolet'
+    }"
+    (click)="toggleFilter('cabriolet')"
+  >
+    Cabriolet
+  </button>
+  <button
+    class="button-filter"
+    [ngClass]="{
+      'bg-gray-700 text-white font-medium': currentFilter === 'super',
+      'bg-gray-300 text-gray-700 font-normal': currentFilter !== 'super'
+    }"
+    (click)="toggleFilter('super')"
+  >
+    Supercar
+  </button>
+
+  <button
+    class="button-filter"
+    [ngClass]="{
+      'bg-gray-700 text-white font-medium': currentFilter === 'sedan',
+      'bg-gray-300 text-gray-700 font-normal': currentFilter !== 'sedan'
+    }"
+    (click)="toggleFilter('sedan')"
+  >
+    Family
+  </button>
+</div>
+<!-- 2xl:w-[480px] -->
+<div class="flex flex-wrap m-2 lg:m-5 md:m-0 justify-evenly gap-2 p-3 2xl:p-0">
+  <div
+    *ngFor="let car of myDataArray"
+    
+    class="w-full md:w-5/12  w-30-100"
+    (click)="showCarDetails(car.id)"
+    ngClass="flex flex-col mb-5 text-center bg-gray-300 text-black rounded-b-3xl rounded-t-3xl shadow h-auto cursor-pointer  hover:rounded-b-3xl overflow-hidden hover:shadow-lg transition-transform duration-300 transform hover:scale-105 hover:bg-slate-800 hover:text-white"
+  >
+    <div
+      class=" hover:text-white rounded-b-3xl rounded-t-3xl h-auto cursor-pointer"
+    >
+      <div class="img h-72 rounded-t-3xl">
+        <img
+          [src]="car.images[0]"
+          alt="{{ car.name }}"
+          class="w-full h-full rounded-t-3xl object-cover object-bottom"
+        />
+      </div>
+      <h3 class=" text-lg font-bold my-1">
+        {{ car.brand }} {{ car.model }} ({{ car.year }})
+      </h3>
+      <p class=" text-xl font-semibold my-1">{{car.priceForDay}} USD per day</p>
+    </div>
+  </div>
+</div>
